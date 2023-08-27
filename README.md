@@ -9,7 +9,7 @@ Edit complex templates with ease; let out your inner Picasso with styling; make
 custom sheets with images/graphs/PivotTables; evaluate formula expressions and
 port calculations to web apps; automate common spreadsheet tasks, and much more!
 
-[![Analytics](https://ga-beacon.appspot.com/UA-36810333-1/SheetJS/sheetjs?pixel)](https://github.com/SheetJS/sheetjs)
+[![Analytics](https://ga-beacon.appspot.com/UA-36810333-1/SheetJS/sheetjs?pixel)](https://git.sheetjs.com/SheetJS/sheetjs)
 
 [![Build Status](https://saucelabs.com/browser-matrix/sheetjs.svg)](https://saucelabs.com/u/sheetjs)
 
@@ -29,9 +29,9 @@ port calculations to web apps; automate common spreadsheet tasks, and much more!
 
 - [`test_files`](https://github.com/SheetJS/test_files): Sample spreadsheets
 
-- [`cfb`](https://github.com/SheetJS/js-cfb): Container (OLE/ZIP) format library
+- [`cfb`](https://git.sheetjs.com/SheetJS/js-cfb): Container (OLE/ZIP) format library
 
-- [`codepage`](https://github.com/SheetJS/js-codepage): Legacy text encodings
+- [`codepage`](https://git.sheetjs.com/SheetJS/js-codepage): Legacy text encodings
 
 ## License
 

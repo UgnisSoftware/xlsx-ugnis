@@ -4,10 +4,17 @@ This log is intended to keep track of backwards-incompatible changes, including
 but not limited to API changes and file location changes.  Minor behavioral
 changes may not be included if they are not expected to break existing code.
 
+## v0.20.0
+
+* Use UTC interpretation of Date objects for date cells (potentially breaking)
+* API functions support UTC and local time value interpretations
+* Export `NaN` values to `#NUM!` and infinite values to `#DIV/0!`
+
 ## v0.19.3
 
 * XLSX Ensure comment address is valid (h/t @slonser)
 * Enforce Excel worksheet name restrictions
+* Fixed "Prototype Pollution" vulnerability (CVE-2023-30533)
 
 ## v0.19.2
 

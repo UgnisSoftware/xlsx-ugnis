@@ -139,8 +139,20 @@ export interface DateNFOption {
     dateNF?: NumberFormat;
 }
 
+export interface UTCOption {
+    /**
+     * For plaintext formats, interpret ambiguous datetimes in UTC
+     * If explicitly set to `false`, dates will be parsed in local time.
+     *
+     * The `true` option is consistent with spreadsheet application export.
+     *
+     * @default true
+     */
+    UTC?: boolean;
+}
+
 /** Options for read and readFile */
-export interface ParsingOptions extends CommonOptions {
+export interface ParsingOptions extends UTCOption, CommonOptions {
     /** Input data encoding */
     type?: 'base64' | 'binary' | 'buffer' | 'file' | 'array' | 'string';
 
@@ -294,6 +306,12 @@ export interface WritingOptions extends CommonOptions {
      * If this option is omitted, the first worksheet will be exported.
      */
     sheet?: string | number;
+
+    /** Field Separator ("delimiter") for CSV / Text output */
+    FS?: string;
+
+    /** Record Separator ("row separator") for CSV / Text output */
+    RS?: string;
 }
 
 /** Workbook Object */
@@ -803,9 +821,27 @@ export interface Sheet2JSONOpts extends DateNFOption {
 
     /** if true, return raw numbers; if false, return formatted numbers */
     rawNumbers?: boolean;
+
+    /**
+     * If true, return dates whose UTC interpretation is correct
+     * By default, return dates whose local interpretation is correct
+     *
+     * @default false
+     */
+    UTC?: boolean;
 }
 
-export interface AOA2SheetOpts extends CommonOptions, DateNFOption {
+export interface UTCDateOption {
+    /**
+     * If true, dates are interpreted using the UTC methods
+     * By default, dates are interpreted in the local timezone
+     *
+     * @default false
+     */
+    UTC?: boolean;
+}
+
+export interface AOA2SheetOpts extends CommonOptions, UTCDateOption, DateNFOption {
     /**
      * Create cell objects for stub cells
      * @default false
@@ -815,7 +851,7 @@ export interface AOA2SheetOpts extends CommonOptions, DateNFOption {
 
 export interface SheetAOAOpts extends AOA2SheetOpts, OriginOption {}
 
-export interface JSON2SheetOpts extends CommonOptions, DateNFOption, OriginOption {
+export interface JSON2SheetOpts extends CommonOptions, UTCDateOption, DateNFOption, OriginOption {
     /** Use specified column order */
     header?: string[];
 
@@ -841,6 +877,14 @@ export interface Table2SheetOpts extends CommonOptions, DateNFOption, OriginOpti
      * @default "Sheet1"
      */
     sheet?: string;
+
+    /**
+     * If true, interpret date strings as if they are UTC.
+     * By default, date strings are interpreted in the local timezone.
+     *
+     * @default false
+     */
+    UTC?: boolean;
 }
 
 export interface Table2BookOpts extends Table2SheetOpts {
@@ -886,15 +930,6 @@ export interface XLSX$Utils {
 
     /** Generates a list of the formulae (with value fallbacks) */
     sheet_to_formulae(worksheet: WorkSheet): string[];
-
-    /** Generates DIF */
-    sheet_to_dif(worksheet: WorkSheet, options?: Sheet2HTMLOpts): string;
-
-    /** Generates SYLK (Symbolic Link) */
-    sheet_to_slk(worksheet: WorkSheet, options?: Sheet2HTMLOpts): string;
-
-    /** Generates ETH */
-    sheet_to_eth(worksheet: WorkSheet, options?: Sheet2HTMLOpts): string;
 
     /* --- Cell Address Utilities --- */
 
