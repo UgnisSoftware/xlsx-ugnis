@@ -1,6 +1,6 @@
 {
 	"name": "xlsx",
-	"version": "0.20.0+csv",
+	"version": "0.20.1",
 	"author": "sheetjs",
 	"description": "SheetJS Spreadsheet data parser and writer",
 	"keywords": [
@@ -109,8 +109,7 @@
 		"fs": false
 	},
 	"sideEffects": false,
-	"dependencies": {
-	},
+	"dependencies": {},
 	"devDependencies": {
 		"@sheetjs/uglify-js": "~2.7.3",
 		"@types/node": "^8.5.9",
