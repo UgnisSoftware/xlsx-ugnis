@@ -1,6 +1,6 @@
 {
 	"name": "xlsx-ugnis",
-	"version": "0.20.1",
+	"version": "0.20.2",
 	"author": "sheetjs",
 	"description": "SheetJS Spreadsheet data parser and writer",
 	"keywords": [
