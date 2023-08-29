@@ -1,9 +1,0 @@
-language: node_js
-dist: xenial
-node_js:
-  - "8"
-before_script:
-  - "make all"
-  - "npm install -g xlsjs xlsx j"
-#  - "sudo pip install -r requirements.txt --use-mirrors"
-#  - "gem install roo spreadsheet" 
